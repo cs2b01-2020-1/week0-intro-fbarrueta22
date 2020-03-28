@@ -8,16 +8,15 @@ def lecturagenoma(name):
         if(i!="\n"):
             datos=datos+i
     return datos
-def similitud(genoma1,genoma2,fila,columna):
+def similitud(genoma1,genoma2):
     sum=0
-    for i in range(fila*columna):
+    rango=min(len(genoma1),len(genoma2))
+    for i in range(rango):
         if(genoma1[i]==genoma2[i]):
             sum+=1
-    return sum/(fila*columna)*100
+    return (sum/rango)*100
 suma=0
 print("Analizando los Genomas.........!")
-fila=424
-columna=70
 #genoma1
 g1=lecturagenoma('AY274119.txt')
 #genoma2
@@ -30,27 +29,27 @@ g4=lecturagenoma('MN988668.txt')
 g5=lecturagenoma('MN988669.txt')
 
 #genoma1 vs genoma2
-p12=similitud(g1,g2,fila,columna)
+p12=similitud(g1,g2)
 #genoma1 vs genoma3
-p13=similitud(g1,g3,fila,columna)
+p13=similitud(g1,g3)
 #genoma1 vs genoma4
-p14=similitud(g1,g4,fila,columna)
+p14=similitud(g1,g4)
 #genoma1 vs genoma5
-p15=similitud(g1,g5,fila,columna)
+p15=similitud(g1,g5)
 
 #genoma2 vs genoma3
-p23=similitud(g2,g3,fila,columna)
+p23=similitud(g2,g3)
 #genoma2 vs genoma4
-p24=similitud(g2,g4,fila,columna)
+p24=similitud(g2,g4)
 #genoma2 vs genoma5
-p25=similitud(g2,g5,fila,columna)
+p25=similitud(g2,g5)
 
 #genoma3 vs genoma4
-p34=similitud(g3,g4,fila,columna)
-p35=similitud(g3,g5,fila,columna)
+p34=similitud(g3,g4)
+p35=similitud(g3,g5)
 
 #genoma4 vs genoma5
-p45=similitud(g4,g5,fila,columna)
+p45=similitud(g4,g5)
 
 
 print("-------------------------------------------------------------")
